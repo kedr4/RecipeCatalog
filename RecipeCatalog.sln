@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService.Api", "UserService\UserService.Api.csproj", "{03D07026-8202-41FA-8673-4823B9988764}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7559D78A-7A1F-4E92-BA4E-A2C811F5D375} = {7559D78A-7A1F-4E92-BA4E-A2C811F5D375}
+		{DBAB0B70-CA30-44AB-AB5D-3D71102B6B8C} = {DBAB0B70-CA30-44AB-AB5D-3D71102B6B8C}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeService.Api", "RecipeService\RecipeService.Api.csproj", "{D6D739E2-D2E8-43D7-B621-3B3736879AD4}"
 EndProject
@@ -20,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "UserService.Infrastructure\UserService.Infrastructure.csproj", "{7559D78A-7A1F-4E92-BA4E-A2C811F5D375}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Application", "UserService.Application\UserService.Application.csproj", "{DBAB0B70-CA30-44AB-AB5D-3D71102B6B8C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{149D0888-6DBA-48FB-BF47-AAF6BC764840} = {149D0888-6DBA-48FB-BF47-AAF6BC764840}
+		{7559D78A-7A1F-4E92-BA4E-A2C811F5D375} = {7559D78A-7A1F-4E92-BA4E-A2C811F5D375}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeService.Domain", "RecipeService.Domain\RecipeService.Domain.csproj", "{95E9DFF0-737E-490B-9A4E-0A523D17BAC2}"
 EndProject
