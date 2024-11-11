@@ -27,12 +27,12 @@ namespace UserService.Api
             app.UseAuthentication();
             app.UseAuthorization();
 
-            using (var scope = app.Services.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
-                db.Database.Migrate();
+            //using (var scope = app.Services.CreateScope())
+            //{
+            //    var db = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+            //    db.Database.Migrate();
 
-            }
+            //}
             app.Run();
         }
     }

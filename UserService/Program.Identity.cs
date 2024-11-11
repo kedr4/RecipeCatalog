@@ -12,7 +12,7 @@ namespace UserService.Api
 
             services.AddIdentity<User, IdentityRole>()
                         .AddEntityFrameworkStores<DatabaseContext>()
-                        .AddDefaultTokenProviders();
+                      .AddDefaultTokenProviders();
 
             return services;
         }
