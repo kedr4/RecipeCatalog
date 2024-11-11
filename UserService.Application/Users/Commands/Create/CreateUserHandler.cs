@@ -53,16 +53,17 @@ namespace UserService.Application.Users.Commands.Create
 
             // Генерация токена подтверждения
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confirmationLink = $"{request.Scheme}://{request.Host}/api/Account/confirm?userId={user.Id}&token={Uri.EscapeDataString(token)}";
+            var confirmationLink = $"{request.Scheme}://{request.Host}/api/Users/confirm?userId={user.Id}&token={Uri.EscapeDataString(token)}";
             var body = $"Hello, {user.Name},<br><br>Please confirm your account by clicking <a href='{confirmationLink}'>here</a>.";
+            var subject = "Confirm your email";
 
             // Отправка письма
-            /*
-           var emailSent = await _emailService.SendEmailAsync(user.Email, subject, body);
+
+            var emailSent = await _emailService.SendEmailAsync(user.Email, subject, body);
            if (!emailSent)
            {
                throw new Exception("Error sending confirmation email.");
-           } */
+           } 
 
             return new CreateUserResponse { Id = user.Id, Email = user.Email };
         }

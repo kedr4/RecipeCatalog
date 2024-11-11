@@ -152,7 +152,9 @@ namespace UserService.Api.Controllers
                 return BadRequest("Invalid user.");
             }
 
-            var result = await _userManager.ConfirmEmailAsync(user, token);
+            //var result = await _userManager.ConfirmEmailAsync(user, token);
+            var decodedToken = Uri.UnescapeDataString(token);
+            var result = await _userManager.ConfirmEmailAsync(user, decodedToken);
             if (!result.Succeeded)
             {
                 return BadRequest("Invalid or expired token.");

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using UserService.Domain.Users;
+using UserService.Infrastructure;
 using UserService.Infrastructure.Email;
 
 namespace UserService.Application.Users.Commands.ForgotPassword

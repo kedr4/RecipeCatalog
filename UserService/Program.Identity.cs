@@ -14,6 +14,8 @@ namespace UserService.Api
                         .AddEntityFrameworkStores<DatabaseContext>()
                       .AddDefaultTokenProviders();
 
+           
+
             return services;
         }
     }
