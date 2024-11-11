@@ -30,11 +30,18 @@ namespace UserService.Application.Users.Commands.ForgotPassword
             }
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+           // var decodedToken = Uri.UnescapeDataString(token);
+
             _logger.LogInformation("Password reset token generated for user {UserId}: {Token}", user.Id, token);
 
-            var resetLink = $"https://yourdomain.com/api/Account/reset-password?userId={user.Id}&token={Uri.EscapeDataString(token)}";
+            //var resetLink = $"https://localhost:44335/api/Users/reset-password/reset-password.html?userId={user.Id}&token={token}";
+            var resetLink = $"https://localhost:44335/reset-password/reset-password.html?userId={user.Id}&token={token}";
             var subject = "Reset your password";
-            var body = $"Hello, {user.Name},<br><br>Please reset your password by clicking <a href='{resetLink}'>here</a>.";
+            //var body = $"Hello, {user.Name},<br><br>Please reset your password by clicking <a href='{resetLink}'>here</a>.";
+            var body = $"Hello, {user.Name},<br><br>" +
+           $"Please reset your password by clicking <a href='{resetLink}'>here</a>.<br><br>" +
+           $"If you didn't request a password reset, please ignore this email.<br><br>" +
+           $"Your reset token: {token}";
 
             var emailSent = await _emailService.SendEmailAsync(user.Email, subject, body);
             if (!emailSent)

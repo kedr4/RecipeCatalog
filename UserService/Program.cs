@@ -26,6 +26,7 @@ namespace UserService.Api
             app.UseMiddlewares();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseStaticFiles();
 
             //using (var scope = app.Services.CreateScope())
             //{

@@ -11,7 +11,7 @@ namespace UserService.Api
             services.AddMediator();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IEmailService, EmailService>();////////////////
-
+            services.AddControllersWithViews();
 
             return services;
         }
