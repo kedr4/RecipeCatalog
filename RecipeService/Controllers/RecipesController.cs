@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using RecipeService.Api.Controllers.Recipes.Requests;
 using RecipeService.Api.Controllers.Recipes.Requests.RecipeService.Api.Controllers.Recipes.Requests;
@@ -27,6 +28,7 @@ namespace RecipeService.Api.Controllers
         public async Task<ActionResult<Recipe>> CreateRecipeAsync([FromBody] CreateRecipeRequest request)
         {
             var userId = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+           
             var cmd = new CreateRecipeCommand
             {
                 Recipe = new Recipe
@@ -36,6 +38,7 @@ namespace RecipeService.Api.Controllers
                     Category = request.Category,
                     Ingredients = request.Ingredients,
                     Instructions = request.Instructions,
+                    //CreatedBy = createdBy,
                     CreatedAt = DateTime.UtcNow,
                     UserId = userId
                 }

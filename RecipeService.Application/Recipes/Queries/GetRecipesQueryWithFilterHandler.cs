@@ -36,10 +36,10 @@ namespace RecipeService.Application.Recipes.Queries
                 recipes = recipes.Where(r => r.Ingredients.Contains(request.Ingredients)).ToList();
             }
 
-            if (!string.IsNullOrEmpty(request.CreatedBy))
-            {
-                recipes = recipes.Where(r => r.CreatedBy == request.CreatedBy).ToList();
-            }
+            //if (!string.IsNullOrEmpty(request.CreatedBy))
+            //{
+            //    recipes = recipes.Where(r => r.CreatedBy == request.CreatedBy).ToList();
+            //}
 
             if (request.CreatedAfter.HasValue)
             {

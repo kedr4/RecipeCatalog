@@ -30,10 +30,10 @@ namespace RecipeService.Api.Controllers.Recipes.Validators
                 .NotEmpty().WithMessage("Инструкции не могут быть пустыми.")
                 .When(r => !string.IsNullOrEmpty(r.Instructions));
 
-            RuleFor(r => r.ImageUrl)
-                .Must(uri => Uri.TryCreate(uri, UriKind.Absolute, out _))
-                .When(r => !string.IsNullOrEmpty(r.ImageUrl))
-                .WithMessage("Некорректный формат URL для изображения.");
+            //RuleFor(r => r.ImageUrl)
+            //    .Must(uri => Uri.TryCreate(uri, UriKind.Absolute, out _))
+            //    .When(r => !string.IsNullOrEmpty(r.ImageUrl))
+            //    .WithMessage("Некорректный формат URL для изображения.");
         }
     }
 }

@@ -20,9 +20,9 @@ namespace RecipeService
             builder.Services.AddAuthorization();
             builder.Services.AddServices();
             builder.Services.AddValidation();
-            //builder.Services.AddEntityFramework(configuration);
-            builder.Services.AddDbContext<DatabaseContext>(options =>
-          options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddEntityFramework(configuration);
+           // builder.Services.AddDbContext<DatabaseContext>(options =>
+          //options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
@@ -34,11 +34,11 @@ namespace RecipeService
             app.UseAuthorization();
 
 
-            /* using (var scope = app.Services.CreateScope())
+            using (var scope = app.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
-                db.Database.Migrate();
-            } */
+                db.Database.EnsureCreated();
+            }
             app.Run();
 
         }

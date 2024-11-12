@@ -15,7 +15,7 @@ namespace RecipeService.Domain.Recipes
         public string Ingredients { get; set; }    // Ингредиенты (можно сделать отдельной сущностью)
         public string Instructions { get; set; }   // Шаги приготовления
         public DateTime CreatedAt { get; set; }    // Дата создания рецепта
-        public string CreatedBy { get; set; }      // Автор рецепта (ID пользователя)
+        //public string CreatedBy { get; set; }      // Автор рецепта (ID пользователя)
         public string UserId { get; set; }
         // Дополнительные свойства, например, для изображения
         public string? ImageUrl { get; set; }       // Ссылка на изображение
