@@ -21,9 +21,7 @@ namespace RecipeService
             builder.Services.AddServices();
             builder.Services.AddValidation();
             builder.Services.AddEntityFramework(configuration);
-           // builder.Services.AddDbContext<DatabaseContext>(options =>
-          //options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
+          
             var app = builder.Build();
 
             app.MapControllers();
